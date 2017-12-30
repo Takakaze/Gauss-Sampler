@@ -1,0 +1,43 @@
+﻿<Window x:Class="gauss_sampler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gauss_sampler"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:Typeload x:Key="TYPE"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56*"/>
+            <ColumnDefinition Width="461*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.ColumnSpan="2">
+            <Menu.Background>
+                <ImageBrush ImageSource="2017-06-26 (4).png"/>
+            </Menu.Background>
+            <MenuItem FontFamily="Droid Sans Fallback" Background="Transparent" Header="文件">
+                <MenuItem FontFamily="Droid Sans Fallback" Header="save result" Click="MenuItem_File_save"></MenuItem>
+                <MenuItem FontFamily="Droid Sans Fallback" Header="save random number" Click="MenuItem_File_saverad"></MenuItem>
+                <MenuItem FontFamily="Droid Sans Fallback" Header="about" Click="MenuItem_File_info"></MenuItem>
+                <MenuItem FontFamily="Droid Sans Fallback" Header ="exit" Click="MenuItem_File_Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem FontFamily="Droid Sans Fallback" Background="Transparent" Header="其他">
+                <MenuItem FontFamily="Droid Sans Fallback" Header="background image" Click="BGI"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Button Content="Gauss Sample" FontFamily="Droid Sans Fallback" HorizontalAlignment="Left" Height="29" Margin="8,27,0,0" VerticalAlignment="Top" Width="101" Grid.ColumnSpan="2" Click="Sample"/>
+        <TextBox Name="result" IsReadOnly="True" HorizontalAlignment="Left" Height="115" FontFamily="Droid Sans Fallback" Background="Transparent" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" Margin="69.974,27,0,0" Grid.Column="1"/>
+        <TextBox Name="rannum" IsReadOnly="True" HorizontalAlignment="Left" Height="134" FontFamily="Droid Sans Fallback" Background="Transparent" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" Margin="69.974,170,0,0" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" FontFamily="Droid Sans Fallback" TextWrapping="Wrap" Text="Sample Result" VerticalAlignment="Top" Margin="205.974,7,0,0" Height="15" Width="95" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" FontFamily="Droid Sans Fallback" Margin="197.974,148,0,0" TextWrapping="Wrap" Text="Random number" VerticalAlignment="Top" Height="15" Width="103" Grid.Column="1"/>
+        <Button Content="multi Sample" FontFamily="Droid Sans Fallback" HorizontalAlignment="Left" Height="29" Margin="8,61,0,0" VerticalAlignment="Top" Width="101" Click="multiSample" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" FontFamily="Droid Sans Fallback" Margin="15,95,0,0" TextWrapping="Wrap" Text="Sample ↓ times" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="91"/>
+        <TextBox Name="num" FontFamily="Droid Sans Fallback" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" KeyDown="KEYDOWN" Margin="8,110,0,0" RenderTransformOrigin="0.816,0.533"/>
+        <Button Content="Randomnum" FontFamily="Droid Sans Fallback" HorizontalAlignment="Left" Height="29" Margin="8,141,0,0" VerticalAlignment="Top" Width="101" Click="Random" Grid.ColumnSpan="2"/>
+        <ComboBox Name="type" FontFamily="Droid Sans Fallback" ItemsSource="{StaticResource TYPE}" DisplayMemberPath="TYPE" SelectedValuePath="ID" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,175,0,0" Width="101"/>
+        <Button Content="CLEAR" FontFamily="Droid Sans Fallback" HorizontalAlignment="Left" Height="29" Margin="8,201,0,0" VerticalAlignment="Top" Width="101" Grid.ColumnSpan="2" Click="Clear"/>
+    </Grid>
+</Window>
