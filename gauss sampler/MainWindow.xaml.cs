@@ -206,17 +206,19 @@ namespace gauss_sampler
             Random rd = new Random();
             int i;
             double d;
-            if (type.SelectedIndex == 1)          //INT 情况下  /  INT type
+            if (type.SelectedIndex == 0)          //INT 情况下  /  INT type
             {
                 i = rd.Next(-65536, 65535);
                 rannum.Text += i.ToString();
+                rannum.Text += "\n";
             }
-            else if (type.SelectedIndex == 2)       //DOUBLE情况下  /  DOUBLE type
+            else if (type.SelectedIndex == 1)       //DOUBLE情况下  /  DOUBLE type
             {
                 i = rd.Next(-65536, 65535);
                 d = rd.NextDouble();
                 double R = i * d;
                 rannum.Text += R.ToString();
+                rannum.Text += "\n";
             }
 
         }
@@ -267,7 +269,7 @@ namespace gauss_sampler
     {
         public Typeload()
         {
-            TypeComboBox Tcb1 = new TypeComboBox { ID = 1 ,TYPE = "INT"};
+            TypeComboBox Tcb1 = new TypeComboBox { ID = 3 ,TYPE = "INT"};
             TypeComboBox Tcb2 = new TypeComboBox { ID = 2 ,TYPE = "DOUBLE" };
             this.Add(Tcb1);
             this.Add(Tcb2);
